@@ -28,12 +28,16 @@ class Beam:
 
         Arguments
         ---------
-        t_0 : float
-        gamma_1 : float
-        gamma_2 : float
-        sigma_1 : float
-        sigma_2 : float
-        R : float
+        filepath : string
+            Path to .txt file containing information about the beam attributes
+                t_0 : float
+                gamma_1 : float
+                gamma_2 : float
+                sigma_1 : float
+                sigma_2 : float
+                R : float
+                C: float
+                (future: modeling function type (?))
         """
         # Obtain attribute names and values from provided file
         attr_dict = fio.params_to_dict(filepath)
@@ -60,8 +64,7 @@ class Beam:
         float
             The value of the Cole-Windsor function at the given time t and energy E.
         """
-        C = 8.03e18 * np.exp((-8.21 * pow(E, 0.0542))) #TODO: find what the constants are here and if they should be specified elsewhere/be modifiable
-
+    
         delta_t = t - self.t_0
         if (t < self.t_0):
             F_1 = np.exp(-0.5 * ((delta_t / self.sigma_1) ** 2))
@@ -79,7 +82,7 @@ class Beam:
                 F_2 = np.exp((((self.gamma_2 * self.sigma_2)**2) / 2) - (self.gamma_2 * delta_t)) # TODO: check if order of pow/mult matter here for our range of #s
                                                                                                   # or just raise to powers first as in the prev code
 
-        F = C * ( (1 - self.R) * F_1 + self.R * F_2)  #TODO check and complete this function
+        F = self.C * ( (1 - self.R) * F_1 + self.R * F_2)  #TODO check and complete this function
         return F
 
 
