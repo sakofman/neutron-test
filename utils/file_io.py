@@ -4,6 +4,7 @@ import csv
 File processing module
 """
 
+# TODO: add functionality for converting a string (if we have to specify an exponential or smth, like for the beam parameters) to a float if encountered 
 def params_to_dict(filepath, delimiter=None):
     """
     Returns a dict containing object parameters specified in the input file.
@@ -43,6 +44,6 @@ def params_to_dict(filepath, delimiter=None):
 
     # Combine read data in a dict
     for key, value in zip(keys, values):
-        params_dict[key] = value
+        params_dict[key] = float(value)
 
     return params_dict
