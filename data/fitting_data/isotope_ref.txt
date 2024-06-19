@@ -1,0 +1,6 @@
+file_name,abundance,atomic_fraction,density,atomic_mass,thickness,group_number
+Al-27-nat.txt,1,0.600000,6.71,27,5000,1
+Li-6.txt,0.074,0.100000,4.2,6.94,11750,1
+Li-7.txt,0.926,0.100000,4.2,???,11750,1
+Y-nat.txt,1,0.150000,4.56,39,5000,1
+Zn-nat.txt,1,0.150000,4.56,65.38,0,1

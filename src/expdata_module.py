@@ -14,6 +14,7 @@ Corrections
     Fix TODOs
 """
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 from astropy.io import fits
 from skimage import exposure
@@ -110,7 +111,7 @@ class ExpData:
         Returns Time and Tr arrays for the experimental data
         """
         # read experimental data
-        Measured = pd.read_table(FileName)
+        Measured = pd.read_table(filename)
         # create numpy arrays
         T = Measured[Measured.columns[0]].to_numpy()*1e6  # convert to us
         Tr = Measured[Measured.columns[1]].to_numpy()

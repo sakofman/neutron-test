@@ -1,0 +1,5 @@
+Al-27-nat.txt
+Li-6.txt
+Li-7.txt
+Y-nat.txt
+Zn-nat.txt
